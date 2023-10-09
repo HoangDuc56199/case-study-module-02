@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var employeeArr = [];
+
+function Employees(id, fullName, baseSalary, productSalary, productQnt) {
+  this.id = id;
+  this.fullName = fullName;
+  this.baseSalary = baseSalary;
+  this.productSalary = 30;
+  this.productQnt = productQnt;
+}
+
+function inputEmployee(id) {
+  let employee = {};
+  employee.id = id + 4;
+  employee.fullName = prompt(`Input full name of employee ${id + 4}`);
+  employee.baseSalary = Number(prompt(`Input base salary of employee ${id + 4}`));
+  employee.productSalary = 30;
+  employee.productQnt = Number(prompt(
+    `Input product quantity of employee ${id + 4}`
+  ));
+
+  return employee;
+}
+
+function inPut() {
+  let n = prompt(`Input n:`);
+  let lengthArr = employeeArr.length;
+  if (n <= 3) {
+    alert("Please input n more than 3");
+  } else {
+    for (let index = 0; index < n - lengthArr; index++) {
+      employeeArr.push(inputEmployee(index));
+    }
+  }
+}
+
+function calcSalary(employee) {
+  let baseMonthSalary = employee.baseSalary + employee.productSalary * employee.productQnt;
+  if (employee.productQnt > 50) {
+    employee.monthSalary = baseMonthSalary + (employee.productQnt - 50) * 0.1;
+  } else if (employee.productQnt < 50) {
+    employee.monthSalary = baseMonthSalary * 0.9;
+  } else {
+    employee.monthSalary = baseMonthSalary;
+  }
+}
+
+function calcArrSalary() {
+  employeeArr.forEach((item) => calcSalary(item));
+}
+function arrangeArr(arr){
+    arr.sort((a,b)=>a.monthSalary-b.monthSalary)
+}
+
+// function findMaxofSalaryEmp(arr){
+//     arr.filter(()=>)
+// }
+function main() {
+  let employee1 = new Employees(1, "Nguyen Van Teo", 1000, 30, 50);
+  let employee2 = new Employees(2, "Nguyen Van Ti", 500, 30, 45);
+  let employee3 = new Employees(3, "Nguyen Van Hoi", 700, 30, 52);
+  employeeArr = [employee1, employee2, employee3];
+  inPut();
+  console.log('mảng ban đầu',employeeArr);
+  calcArrSalary();
+  console.log('mảng sau khi tính lương',employeeArr);
+  arrangeArr(employeeArr);
+  console.log('mảng sau khi sắp xếp',employeeArr);
+}
+
+main();
+
+    </script>
+  </body>
+</html>
