@@ -116,7 +116,14 @@
           n = Number(prompt("nhập id muốn chỉnh sửa"));
         }
         
-        editItem(arr[n-1]);
+        let index
+        for(i=0;i<arr.length;i++){
+          if(arr[i].id===n){
+            index=i
+          }
+        }
+        console.log(index);
+        editItem(arr[index]);
       };
       const deleteItem = (arr) => {
         let n = Number(prompt("nhập id nhân viên muốn xóa"));
@@ -127,7 +134,8 @@
         }
         
         let newArr = arr.filter((item) => item.id !== n);
-        return newArr;}
+        return newArr
+      }
       
       main();
     </script>
