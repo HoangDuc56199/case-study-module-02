@@ -6,7 +6,8 @@
     <title>Document</title>
   </head>
   <body>
-    <script>
+    <script type="module" src="./EmployeeManagerment.js"></script>
+    <!-- <script>
       let employees = [];
 
       const main = () => {
@@ -64,7 +65,7 @@
       };
       const inputEmp = (arr) => {
         let n = Number(prompt("nhập số nhân viên muốn thêm:"));
-        for (i = 0; i < n; i++) {
+        for (let i = 0; i < n; i++) {
           arr.push(addEmp(i + 1));
         }
       };
@@ -79,9 +80,8 @@
             (employee.productQuantity - 50) * employee.productSalary * 0.1;
         } else if (employee.productQuantity < 50) {
           totalSalary = totalSalary * 0.9;
-        } else {
-          totalSalary = totalSalary;
         }
+
         return (employee.totalSalary = totalSalary);
       };
       const totalSalaryArr = (arr) => {
@@ -117,7 +117,7 @@
         }
         
         let index
-        for(i=0;i<arr.length;i++){
+        for(let i=0;i<arr.length;i++){
           if(arr[i].id===n){
             index=i
           }
@@ -137,6 +137,6 @@
       }
       
       main();
-    </script>
+    </script> -->
   </body>
 </html>
